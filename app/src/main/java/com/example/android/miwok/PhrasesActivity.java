@@ -17,6 +17,9 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
@@ -24,5 +27,22 @@ public class PhrasesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phrases);
+
+        ArrayList<getterSetter> phraseArrayList = new ArrayList<>();
+        phraseArrayList.add(new getterSetter("Where are you going?","minto wuksus"));
+        phraseArrayList.add(new getterSetter("What is your name?","tinnә oyaase'nә"));
+        phraseArrayList.add(new getterSetter("My name is...","oyaaset..."));
+        phraseArrayList.add(new getterSetter("How are you feeling?","michәksәs?"));
+        phraseArrayList.add(new getterSetter("I’m feeling good.","kuchi achit"));
+        phraseArrayList.add(new getterSetter("Are you coming?","әәnәs'aa?"));
+        phraseArrayList.add(new getterSetter("Yes, I’m coming.","hәә’ әәnәm"));
+        phraseArrayList.add(new getterSetter("I’m coming","әәnәm"));
+        phraseArrayList.add(new getterSetter("Let’s go.","yoowutis"));
+        phraseArrayList.add(new getterSetter("Come here.","әnni'nem"));
+
+        ListView phrasesListView = (ListView) findViewById(R.id.IDfromPhrase);
+        phrasesListView.setDivider(null);
+        CustomAdapter phrasesAdapter = new CustomAdapter(this,R.id.IDfromPhrase,phraseArrayList);
+        phrasesListView.setAdapter(phrasesAdapter);
     }
 }
